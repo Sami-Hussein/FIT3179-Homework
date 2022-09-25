@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
@@ -9,19 +12,12 @@
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
-
+  <script src = "./js/vega_lite_vis.js"></script>
+  <title>Week 9 Homework</title>
 </head>
 <body>
-  
-<div id="homework9"></div>
-
-<script type="text/javascript">
-
-  var spec2 = "js/homework9.vg.json";
-  vegaEmbed('#homework9', spec2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
+<h1>Week 9 Homework</h1>
+<div id="homework"></div>
 
 </body>
 </html>
