@@ -44,7 +44,8 @@
         "color": {
           "field": "Score",
           "type": "quantitative",
-          "scale": {"scheme": "blues"}
+          "scale": {"scheme": "blues"},
+          "title": "Happiness Score"
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country Name"},
