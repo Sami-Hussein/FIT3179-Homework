@@ -64,7 +64,7 @@
     "color": {"value": "teal"},
         "tooltip": [
               {"field": "Country", "type": "nominal"},
-              {"field":"Score", "type":"quantitative"},
+              {"field":"Score", "type":"quantitative", "format": ".2f"},
               {"field": "Year", "type": "quantitative"}
             ]
 
@@ -87,7 +87,7 @@
    "size": {"value": 50},
    "tooltip": [
     {"field": "Country", "type": "nominal"},
-    {"field":"Score", "type":"quantitative"},
+    {"field":"Score", "type":"quantitative","format": ".2f"},
     {"field": "Year", "type": "quantitative"}
   ]
 
