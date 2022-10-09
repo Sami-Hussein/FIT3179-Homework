@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top 15 happiest countries around the world (2015-2022).",
+  "params": [
+      {
+        "name": "year",
+        "value": 2015,
+        "bind": {
+          "input": "range",
+          "min": 2015,
+          "max": 2022,
+          "step": 1,
+          "name": "Select Year:"
+        }
+      },
+      {
+        "name": "Continent",
+        "bind": {
+          "input": "select",
+          "options": [
+          null,
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+          ],
+          "labels":[
+          "Show All",
+          "North America",
+          "South America",
+          "Europe",
+          "Africa",
+          "Asia",
+          "Oceania"
+          ],
+          "name": "Continent Selection: "
+          }
+
+        }
+      
+    ],
+  "data": { 
+    "url": "https://raw.githubusercontent.com/Sami-Hussein/Assignment-2/main/world-happiness-report-2015-2022-cleaned.csv"
+          },
+  "height": {"step": 15},
+  "layer":[{
+  "transform": [{"filter": "datum.Year == year && datum.Rank <= 15"},
+  {"filter": "Continent == null || datum.continent == Continent"}],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "sort": "-x"
+    },
+    "x": {
+      "field": "Score",
+      "type": "quantitative",
+      "title": "population"
+    },
+    "color": {"value": "teal"},
+        "tooltip": [
+              {"aggregate":"mean", "field": "Score", "format":".2f","type": "quantitative"},
+              {"field": "Country", "type": "nominal"},
+              {"field": "Year", "type": "quantitative"}
+            ]
+
+   }
+  },
+  {
+     "transform": [{"filter": "datum.Year == year && datum.Rank <= 15"},
+  {"filter": "Continent == null || datum.continent == Continent"}],
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "middle",
+      "dx": 3
+    },"encoding": {
+      "y": {
+      "field": "Country",
+      "type": "nominal",
+      "sort": "-x"
+    },
+    "x": {
+      "field": "Score",
+      "type": "quantitative",
+      "title": "population"
+    },
+      "text": {"field": "Score", "type": "quantitative", "format": ".2f"}
+    }},
+  {
+         "transform": [{"filter": "datum.Year == year"},
+  {"filter": "Continent == null || datum.continent == Continent"}],
+    "mark":"rule",
+    "encoding":{
+    "x": {
+          "aggregate": "mean",
+          "field": "Score",
+          "type": "quantitative"
+        },
+        "color": {"value": "red"},
+        "size": {"value": 3},
+        "tooltip": [
+              {"aggregate":"mean", "field": "Score", "format":".2f","type": "quantitative"},
+              {"field": "Year", "type": "quantitative"}
+            ]
+    }
+  }
+  
+  
+  ]
+  
+}
+
