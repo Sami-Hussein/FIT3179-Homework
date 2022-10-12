@@ -1,22 +1,247 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data viz 2</title>
+<!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+<!-- Import pure.css -->
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+  integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <script src = "./js/vega_lite_vis.js"></script>
+<!-- Google font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+<!-- CSS file -->
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+<!-- Import chartjs and d3 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>
+
 </head>
 <body>
-<div id="barchart"></div>
-<div id="homework"></div>
 
+ <div class="page">
+
+   <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>World Happiness (2015-2022)</h1>
+        <p1>An analysis of the Happiness levels around the world and the various factors that affect it, 
+          gathered from several different data sources and collected from citizens from each country.</p1>
+      </div>
+    </div>
+  <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="description description-left">
+          <h2>World's top 15 most happiest countries</h2>
+          <p> From the lollipop chart bellow we can compare the happiness levels in the top 15 most happiest countries and compare them with the
+            average happiness level, using the filters we can not only vary the year but also limit our data to only display the countries from the selected
+            continent
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div id="viz1" class="vis-container"></div>
+        </div>
+    </div>
+
+    
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="description description-left">
+          <h2>Happiness world map (2015-2022)</h2>
+          <p>Using the following map you can view the change in happiness in the entire worldthroughout the years 2015 to 2022,
+            using the filters you can also limit the data to show the top 10 or 100 happiest countries for any year.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div id="viz2"class="vis-container"></div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+              <div class="description description-left">
+                <h2>Happiness over the years</h2>
+                <p>The following two visualisations display the overall trends and rankings in happiness for each and every available country
+                    and continent .</p>
+              </div>
+            </div>
+            <div class="pure-u-1-3">
+              <div id="viz3" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3" style="width: 31.5%;">
+              <div id="viz4" class="vis-container" style="margin-left: 15px;"></div>
+            </div>
+      
+          </div>
+          <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div class="description description-left">
+            <h2>Key Happiness Factors</h2>
+            <p>What is the correlation between the happiness of a country and the other factors and how strongly does each factor affect the happiness of a country</p>
+          </div>
+        </div>
+      </div>
+      <!-- end pure grid group -->
+
+<!-- pure grid group -->
+<div class="pure-g">
+ <div class="pure-u-1-1">
+   <div id="viz5"  class="vis-container"></div>
+ </div>
+
+ <!-- pure grid group -->
+<div class="pure-g">
+    <div class="pure-u-1-1">
+      <div id="viz6"  class="vis-container"></div>
+    </div>
+
+</div>
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="description description-left">
+          <h2>Happiness in Malaysia</h2>
+          <p>Comparing Malaysia's key happiness factors and their respective magnitudes with respect to Asia's average score for each factor shows That
+            in each and every category other than government trust, Malaysia scores higher than the average displayed by the Asian countries in general
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- end pure grid group -->    
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div>
+            <canvas id="myChart" style="width:200%;height:200%"></canvas></div>
+        </div>
+      
+    </div>
+  
+</div>
+  </div> <!-- end page -->
+   
+<script type="text/javascript">
+  var viz1  =   "https://raw.githubusercontent.com/Sami-Hussein/Assignment-2/main/homework_bar.vg";
+  var viz2  =   "https://raw.githubusercontent.com/Sami-Hussein/Assignment-2/main/homework_map.vg";
+  var viz3  =   "https://raw.githubusercontent.com/Sami-Hussein/Assignment-2/main/slope_chart.vg";
+  var viz4  =   "https://raw.githubusercontent.com/Sami-Hussein/Assignment-2/main/bumpchart.vg"
+  var viz5  =   "https://raw.githubusercontent.com/Sami-Hussein/Assignment-2/main/dot_plots1.vg"
+  var viz6  =   "https://raw.githubusercontent.com/Sami-Hussein/Assignment-2/main/dot_plots2.vg"
+
+
+  vegaEmbed('#viz1', viz1, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+   vegaEmbed('#viz2', viz2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#viz3', viz3, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#viz4', viz4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  vegaEmbed('#viz5', viz5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  vegaEmbed('#viz6', viz6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  const ctx = document.getElementById('myChart').getContext('2d');
+d3.csv("https://raw.githubusercontent.com/Sami-Hussein/Assignment-2/main/all_pivoted.csv").then(makeChart);
+function makeChart(rawData) {
+    malaysia = []
+    for(let i = 0; i < rawData.length;i++){
+        if(rawData[i].Country.toUpperCase() == "Malaysia".toUpperCase() && rawData[i].Year == 2022){// 
+            malaysia.push(rawData[i])
+        }
+    }
+    rawData = malaysia
+        var values = rawData.map(function (d) {
+            //console.log(d)
+          return d.Value;
+        });
+        
+        const data = {
+            labels:['Economy','Family','Freedom','Generosity','Government','Health (Life Expectancy)'],
+            datasets: [{
+                label: 'Malaysia',
+                data: values,
+                fill: true,
+                backgroundColor: 'rgba(128, 99, 132, 0.1)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
+                },
+                {
+    label: 'Asia Average',
+    labels:['Economy','Family','Freedom','Generosity','Government','Health (Life Expectancy)'],
+    data: [1.447744186,0.890348837,0.528790698,0.157767442
+,0.15455814
+,0.618325581
+],
+    fill: true,
+    backgroundColor: 'rgba(211, 211, 211, 0.4',
+    borderColor: 'rgb(211, 211, 211)',
+    pointBackgroundColor: 'rgb(211, 211, 211)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(211, 211, 211)'
+  }
+            
+            ]
+        }
+        const myChart = new Chart(ctx, {
+            type: 'radar',
+            tooltips: {
+    backgroundColor: "#FFFFFF"
+  },
+            data: data,
+                options: {
+                    elements: {
+                            line: {
+                                 borderWidth: 3
+                                 }
+                            }
+                }
+                        
+            });
+      }
+</script>
 </body>
 </html>

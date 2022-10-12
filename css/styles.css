@@ -1,8 +1,83 @@
-#choropleth_map {
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
+.body {
+    font-family: 'Open Sans', sans-serif;
 }
+
+h1 {
+    /* font-family: 'Bitter', serif; */
+    font-weight: 1000;
+}   
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+    padding-top: 30px;
+}
+
+h2 span{
+    color: #0b8987;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: larger;
+}
+
+h3 span{
+    color: #0b8987;
+}
+
+p1 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p span{
+    color: #0b8987;
+    font-weight: bold;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.page {
+    width: 800px;
+    background-color: white;
+    margin: auto;
+    padding: 80px;
+    padding-top: 80px;
+}
+
+.vis-container {
+    width: 100%;
+}
+
+.description h2,
+h1 {
+    margin-top: 0px;
+}
+
+.description-right {
+    padding-left: 20px;
+    font-family: 'Roboto', sans-serif;    
+}
+
+.description-left {
+    padding-right: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pure-g {
+    margin-bottom: 25px;
+}
+
+.pure-u-1-2:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.small-font {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
